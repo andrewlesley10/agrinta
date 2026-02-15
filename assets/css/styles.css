@@ -1,0 +1,325 @@
+/* Google Fonts - Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette - Ultra Modern Nature-Tech */
+    --emerald-deep: #064E3B;
+    --emerald-mid: #065F46;
+    --sage-light: #D1FAE5;
+    --sage-soft: #ECFDF5;
+    --lime-vibrant: #A3E635;
+    /* Primary CTA */
+    --lime-dark: #65A30D;
+    --white: #FFFFFF;
+    --black: #0F172A;
+    --slate-muted: #64748B;
+
+    /* Functional Colors */
+    --primary: var(--emerald-deep);
+    --accent: var(--lime-vibrant);
+    --text-main: var(--black);
+    --text-light: var(--white);
+    --bg-main: var(--white);
+    --bg-alt: var(--sage-soft);
+
+    /* Typography */
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+
+    /* Spacing & Borders */
+    --section-pad: clamp(80px, 10vw, 160px);
+    --container-max: 1280px;
+    --radius-full: 9999px;
+    --radius-xl: 40px;
+    --radius-lg: 24px;
+
+    /* Shadows & Effects */
+    --shadow-modern: 0 20px 40px -10px rgba(6, 78, 59, 0.1);
+    --shadow-hover: 0 30px 60px -12px rgba(6, 78, 59, 0.15);
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+
+    /* Transitions */
+    --transition-base: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.title-large {
+    font-size: clamp(48px, 8vw, 96px);
+}
+
+.title-medium {
+    font-size: clamp(32px, 5vw, 56px);
+}
+
+.title-small {
+    font-size: clamp(24px, 3vw, 32px);
+}
+
+/* Layout Components */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: var(--section-pad) 0;
+}
+
+.grid-bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+/* Navbar Redesign */
+header {
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--white);
+    /* Solid white */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1rem 3rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-modern);
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+    transition: var(--transition-base);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--emerald-deep);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--lime-dark);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-base);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--lime-vibrant);
+    color: var(--emerald-deep);
+}
+
+.btn-primary:hover {
+    background: var(--emerald-deep);
+    color: var(--lime-vibrant);
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    border: 2px solid var(--emerald-deep);
+    color: var(--emerald-deep);
+}
+
+.btn-outline:hover {
+    background: var(--emerald-deep);
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero-split {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    padding-top: 8rem;
+}
+
+.hero-visual {
+    position: relative;
+    height: 80vh;
+    border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+    overflow: hidden;
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bento Cards */
+.bento-card {
+    background: var(--bg-alt);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    transition: var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.bento-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Footer modern */
+footer {
+    background: var(--emerald-deep);
+    color: var(--white);
+    padding: 6rem 0 3rem;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: var(--transition-base);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-visual {
+        height: 50vh;
+        border-radius: var(--radius-xl);
+        margin: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Modern Contact Form */
+.contact-form-container {
+    padding: 1.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--emerald-deep);
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #FAFAFA;
+    border-radius: 16px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: var(--transition-base);
+    color: var(--emerald-deep);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--lime-dark);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(163, 230, 53, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-form {
+    width: auto !important;
+    min-width: 220px;
+    box-shadow: 0 10px 20px -5px rgba(163, 230, 53, 0.3);
+}
+
+@media (max-width: 768px) {
+    .btn-form {
+        width: 100% !important;
+    }
+}
