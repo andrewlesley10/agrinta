@@ -486,3 +486,15 @@ footer {
         width: 100% !important;
     }
 }
+
+.success-message {
+    background: rgba(163, 230, 53, 0.15);
+    color: var(--emerald-deep);
+    border: 1px solid var(--lime-dark);
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    color: #b91c1c;
+    border: 1px solid #ef4444;
+}

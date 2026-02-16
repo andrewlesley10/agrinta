@@ -35,13 +35,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // Simple Form Validation Feedback
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            const btn = form.querySelector('button');
-            btn.textContent = 'Sending...';
-            btn.style.opacity = '0.7';
+    // AJAX Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const formResponse = document.getElementById('form-response');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Loading State
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span><i class="fa-solid fa-spinner fa-spin" style="margin-left: 0.75rem;"></i>';
+            submitBtn.style.opacity = '0.7';
+
+            // Hide previous response
+            formResponse.style.display = 'none';
+            formResponse.className = ''; // Reset classes
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                formResponse.style.display = 'block';
+                formResponse.textContent = result.message;
+
+                if (result.success) {
+                    formResponse.classList.add('success-message');
+                    contactForm.reset();
+                } else {
+                    formResponse.classList.add('error-message');
+                }
+            } catch (error) {
+                formResponse.style.display = 'block';
+                formResponse.textContent = 'Oops! Something went wrong. Please try again later.';
+                formResponse.classList.add('error-message');
+            } finally {
+                // Restore Button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.opacity = '1';
+
+                // Scroll to response message for better mobile experience
+                formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         });
     }
 
