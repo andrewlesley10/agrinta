@@ -498,3 +498,29 @@ footer {
     color: #b91c1c;
     border: 1px solid #ef4444;
 }
+/* Product Imagery Grid Responsiveness */
+@media (max-width: 480px) {
+    .product-imagery-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        height: auto !important;
+    }
+    
+    .product-imagery-grid > div {
+        grid-row: auto !important;
+        grid-column: auto !important;
+        height: 200px !important;
+    }
+}
+
+/* Drone Feature Section Responsiveness */
+@media (max-width: 768px) {
+    .drone-feature-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .drone-feature-grid > div:first-child {
+        height: 300px !important;
+    }
+}
